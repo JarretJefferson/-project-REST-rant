@@ -5,14 +5,14 @@ const app = express()
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
-app.use('/places', require('./rest-rant/controllers/places'))
+app.use('/places', require('./Controllers/places'))
 
 app.get('/', (req, res) => {
   res.render('home')
 })
 
 app.get('*', (req, res) => {
-  res.send('404 page')
+  res.render('error404')
 })
 
 app.listen(process.env.PORT)
